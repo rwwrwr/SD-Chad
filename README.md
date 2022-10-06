@@ -4,10 +4,15 @@ Have been using SD to create art for the last month, finding a template that wor
 
 That flow works great already, have lots of pics that look as good as those trending on ArtStation. Then I thought about automating this using AI. Here is what I have done so far: 
 
-- Got the 10M prompts, seeds, settings, urls from the SD beta discord bot, Aug 2022 (same set used for lexica.art)
+- Got the 10M prompts, seeds, settings, urls from the SD beta discord bot, Aug 2022 (same set used for krea.ai and lexica.art)
+https://github.com/krea-ai/open-prompts
 - Normalized the data by selecting 548K samples that are 512 x 512, 50 steps, 7 scale, not repeated seeds + prompt combo
-- Downloaded the images, got image and text embeddings using Clip Retrieval 
-- Ran those images through ASV1 (created by LAION from 4K gens) and ASV2 (created from 250K gens + no gens, used to get the image set that SD was trained on)
+https://drive.google.com/file/d/1c4WHxtlzvHYd0UY5WCMJNn2EO-Aiv2A0/view
+- Downloaded the images, got image and text embeddings using img2dataset and Clip Retrieval (amazing framework)
+https://github.com/rom1504/clip-retrieval
+- Ran those images through ASV1 (created by LAION from 4K gens) and ASV2 (created from 250K gens + no gens, used to get the image set that SD was trained on)  
+https://github.com/LAION-AI/aesthetic-predictor  
+https://github.com/christophschuhmann/improved-aesthetic-predictor
 
 ASV1 has a nicer distribution of scores, while ASV2 is pretty tight in the middle. Since ASV2 was created by scoring non-gens that might be why is so strict scoring gens from SD. It also seems to prefer realistic images.
 
