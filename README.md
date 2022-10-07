@@ -18,22 +18,18 @@ ASV1 has a nicer distribution of scores, while ASV2 is pretty tight in the middl
 
 ![image](https://user-images.githubusercontent.com/30579087/194380290-6c68fb6b-cd78-4d9f-9ff2-bdbe2c3d43bb.png)
 
-Both seem to be off scoring gen images. 
+Here is ASV1. Album score =10 https://ibb.co/album/cY7GQW. Album score = 0 https://ibb.co/album/84p0Bk.
 
-Here is ASV1. Album score =10 https://ibb.co/album/VVmW2Y. Album score = 0 https://ibb.co/album/dGS1RQ.
+![image](https://user-images.githubusercontent.com/30579087/194484756-c7458d79-876f-4494-a431-604046efa26b.png)
 
-![image](https://user-images.githubusercontent.com/30579087/194382366-8ae204fa-c65c-44a6-af93-8a6686f9aaa4.png)
+Here is ASV2. Album score = 8 (highest) https://ibb.co/album/ypWyhL. Album score = 2 (lowest) https://ibb.co/album/0Rk3Yx.
 
-Here is ASV2. Album score = 8 (highest) https://ibb.co/album/KFt85J. Album score = 2 (lowest) https://ibb.co/album/Pt5ggC.
-
-![image](https://user-images.githubusercontent.com/30579087/194386981-c7fc96c5-2019-49ef-880a-bb1617dad450.png)
+![image](https://user-images.githubusercontent.com/30579087/194484962-d578229c-6c0c-4909-a98f-5fe7b59eb672.png)
 
 - Integrated the code into SD, so one can generate images, and depending on score, they get saved in different folders, different file names
 
 Another cool thing is that it seems to be able to score the image similarly as soon as step 1, although you only have until about step 10-15 before it becomes another image no matter the sampler used. So this could save so much time producing great looking images from the start. We could even set a limit at step 1, then at step x, and so on, so the generation process doesn't waste time on garbage.
 
-Need to package it into a script, and my next step is to retrain the scorer (Chad Score) using only the 548K SD gens instead of non-gens like ASV2, maybe even the 10M if LAION helps, so we can have a scorer that matches the outputs of this platform better.
-
-More to come soon.  
+Need to package it into a script, and my next step is to retrain the scorer using the 548K SD gens. More to come soon.  
 
 
