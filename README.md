@@ -13,6 +13,8 @@ https://github.com/rom1504/clip-retrieval
 - Ran those images through ASV1 (created by LAION from 4K gens) and ASV2 (created from 250K gens + no gens, used to get the image set that SD was trained on)  
 https://github.com/LAION-AI/aesthetic-predictor  
 https://github.com/christophschuhmann/improved-aesthetic-predictor
+- Created a script for SD, so one can generate images, and depending on score, they get saved in different folders, different file names
+https://github.com/grexzen/SD-Chad/blob/main/chad_score.py
 
 ASV1 has a nicer distribution of scores, while ASV2 is pretty tight in the middle. Since ASV2 was created by scoring non-gens that might be why is so strict scoring gens from SD. It also seems to prefer realistic images.
 
@@ -26,10 +28,10 @@ Here is ASV2. Album score = 8 (highest) https://ibb.co/album/ypWyhL. Album score
 
 ![image](https://user-images.githubusercontent.com/30579087/194484962-d578229c-6c0c-4909-a98f-5fe7b59eb672.png)
 
-- Integrated the code into SD, so one can generate images, and depending on score, they get saved in different folders, different file names
+Another cool thing is that it seems to be able to score the image similarly as soon as step 1-2, although you only have until about step 10-15 before it becomes another image no matter the sampler used. 
 
-Another cool thing is that it seems to be able to score the image similarly as soon as step 1, although you only have until about step 10-15 before it becomes another image no matter the sampler used. So this could save so much time producing great looking images from the start. We could even set a limit at step 1, then at step x, and so on, so the generation process doesn't waste time on garbage.
+So this could save so much time producing great looking images from the start. We could even set a limit at step 1, then at step x, and so on, so the generation process doesn't waste time on garbage.
 
-Need to package it into a script, and my next step is to retrain the scorer using the 548K SD gens. More to come soon.  
+Next step is to retrain the scorer using the 548K SD gens. More to come soon.  
 
 
