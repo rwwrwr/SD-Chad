@@ -81,8 +81,11 @@ class Script(scripts.Script):
     def title(self):
         return "SD Chad - Stable Diffusion Aesthetic Scorer"
 
+    def ui(self, is_txt2img):
+        pass
+
     def show(self, is_txt2img):
-        return is_txt2img
+        return True
 
     def ui(self, is_txt2img):
         n = gr.Textbox(label="Number of images to generate")
