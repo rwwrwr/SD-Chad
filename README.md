@@ -14,7 +14,7 @@ https://github.com/rom1504/clip-retrieval
 https://github.com/LAION-AI/aesthetic-predictor  
 https://github.com/christophschuhmann/improved-aesthetic-predictor
 - Created a script for SD, so one can generate images, and depending on score, they get saved in different folders, different file names
-https://github.com/grexzen/SD-Chad/blob/main/chad_score.py
+https://github.com/grexzen/SD-Chad/blob/main/chad_scorer.py
 
 ASV1 has a nicer distribution of scores, while ASV2 is pretty tight in the middle. Since ASV2 was created by scoring non-gens that might be why is so strict scoring gens from SD. It also seems to prefer realistic images.
 
