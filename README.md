@@ -36,19 +36,7 @@ https://github.com/grexzen/SD-Chad/blob/main/train_predictor.py
 
 ![image](https://user-images.githubusercontent.com/30579087/199604457-0487daaa-0c9f-46c6-8eb8-59013d76652e.png)
 
-# ASV2 vs CSV1
-
-ASV2 is great for scoring your images vs other gens + no gens (SD vs real pics) and CSV1 is great for scoring your images vs other gens only (SD vs SD).
-
-Below are the distributions, average scores, and 2 & 3 standard deviations from the mean.
-
-![image](https://user-images.githubusercontent.com/30579087/199601438-0f7b4860-aad5-4204-97fb-c7cf20c69c44.png)
-
 # ASV1 vs ASV2
-
-ASV1 has a nicer distribution of scores, while ASV2 is pretty tight in the middle. Since ASV2 was created by scoring non-gens that might be why is so strict scoring gens from SD. It also seems to prefer realistic images.
-
-![image](https://user-images.githubusercontent.com/30579087/194380290-6c68fb6b-cd78-4d9f-9ff2-bdbe2c3d43bb.png)
 
 Here is ASV1. Album score =10 https://ibb.co/album/cY7GQW. Album score = 0 https://ibb.co/album/84p0Bk.
 
@@ -57,3 +45,15 @@ Here is ASV1. Album score =10 https://ibb.co/album/cY7GQW. Album score = 0 https
 Here is ASV2. Album score = 8 (highest) https://ibb.co/album/ypWyhL. Album score = 2 (lowest) https://ibb.co/album/0Rk3Yx.
 
 ![image](https://user-images.githubusercontent.com/30579087/194484962-d578229c-6c0c-4909-a98f-5fe7b59eb672.png)
+
+ASV1 has a nicer distribution of scores, while ASV2 is pretty tight in the middle. Since ASV2 was created by scoring non-gens that might be why is so strict scoring gens from SD. It also seems to prefer realistic images.
+
+![image](https://user-images.githubusercontent.com/30579087/194380290-6c68fb6b-cd78-4d9f-9ff2-bdbe2c3d43bb.png)
+
+# ASV2 vs CSV1
+
+ASV2 is great for scoring your images vs other gens + no gens (SD vs real pics) and CSV1 is great for scoring your images vs other gens only (SD vs SD).
+
+Below are the distributions, average scores, and 2 & 3 standard deviations from the mean.
+
+![image](https://user-images.githubusercontent.com/30579087/199601438-0f7b4860-aad5-4204-97fb-c7cf20c69c44.png)
