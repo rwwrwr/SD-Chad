@@ -15,6 +15,36 @@ https://github.com/LAION-AI/aesthetic-predictor
 https://github.com/christophschuhmann/improved-aesthetic-predictor
 - Created a script for SD, so one can generate images, and depending on score, they get saved in different folders, different file names
 https://github.com/grexzen/SD-Chad/blob/main/chad_scorer.py
+- Retrained the scoring model using 200K gens scored by people 1-10 to create a second comparing option (ASV2 = SD vs real images, CSV1 = SD vs SD)  
+https://github.com/grexzen/SD-Chad/blob/main/chadscorer.pth
+- Researched the correlation between scores at step 1 and step 20 across 200K gens, not repeated seeds + prompt combos (small 37% positive correlation, not usable)
+
+Now I am retraining the scoring model again using the top 2,500 images scored from 200K gens (1.5 model + new VAE + style = best gens so far), and handpicking the few images that I would personally published in my art channels. First test was great, the model really seems to understand which images I would pick. 
+
+# SD Chad Script
+
+- Add the script to SD by following these instructions  
+https://github.com/grexzen/SD-Chad/blob/main/chad_scorer.py   
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Custom-Scripts
+- Select the script from the dropdown, and add how many gens you want to produce (this adds all gens above 6.9 to your outputs folder, that's the statistically significant score limit from 500K scored gens; if you use the chadscorer model instead, change the limit to 7.7)   
+https://github.com/grexzen/SD-Chad/blob/main/chadscorer.pth
+- Create gens from lists of prompts and seeds by using this script in the custom script option on SD (create 1 txt for prompt + 1 for seeds, add paths to script)  
+https://github.com/grexzen/SD-Chad/blob/main/create_gens_from_list_of_prompts_and_seeds_and_score_them.py 
+- Retrain the scoring model by using the training scripts in this repo (create cvs with a list of images with 2 columns IMAGEPATH & AVERAGE_RATING, add paths to your images and scores, transform it into a parquet file, then run them).   
+https://github.com/grexzen/SD-Chad/blob/main/simple_inference.py   
+https://github.com/grexzen/SD-Chad/blob/main/train_predictor.py
+
+![image](https://user-images.githubusercontent.com/30579087/199604457-0487daaa-0c9f-46c6-8eb8-59013d76652e.png)
+
+# ASV2 vs CSV1
+
+ASV2 is great for scoring your images vs other gens + no gens (SD vs real pics) and CSV1 is great for scoring your images vs other gens only (SD vs SD).
+
+Below are the distributions, average scores, and 2 & 3 standard deviations from the mean.
+
+![image](https://user-images.githubusercontent.com/30579087/199601438-0f7b4860-aad5-4204-97fb-c7cf20c69c44.png)
+
+# ASV1 vs ASV2
 
 ASV1 has a nicer distribution of scores, while ASV2 is pretty tight in the middle. Since ASV2 was created by scoring non-gens that might be why is so strict scoring gens from SD. It also seems to prefer realistic images.
 
@@ -27,11 +57,3 @@ Here is ASV1. Album score =10 https://ibb.co/album/cY7GQW. Album score = 0 https
 Here is ASV2. Album score = 8 (highest) https://ibb.co/album/ypWyhL. Album score = 2 (lowest) https://ibb.co/album/0Rk3Yx.
 
 ![image](https://user-images.githubusercontent.com/30579087/194484962-d578229c-6c0c-4909-a98f-5fe7b59eb672.png)
-
-Another cool thing is that it seems to be able to score the image similarly as soon as step 1-2, although you only have until about step 10-15 before it becomes another image no matter the sampler used. 
-
-So this could save so much time producing great looking images from the start. We could even set a limit at step 1, then at step x, and so on, so the generation process doesn't waste time on garbage.
-
-Next step is to retrain the scorer using the 548K SD gens. More to come soon.  
-
-
