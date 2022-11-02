@@ -105,9 +105,6 @@ class Script(scripts.Script):
             if chad_score >= 6.9:
                 save_chad = images.save_image(gens[0], p.outpath_samples, "", p.seed, "-Chad--" + str(chad_score), opts.samples_format)
                 print("Chad")
-            elif 6.3 <= chad_score < 6.9:
-                save_soy = images.save_image(gens[0], p.outpath_samples, "", p.seed, "-Soy--" + str(chad_score), opts.samples_format)
-                print("Soy")
             else:
                 print("Trash")
       return Processed(p, gens, p.seed, "")
