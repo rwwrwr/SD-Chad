@@ -103,8 +103,7 @@ class Script(scripts.Script):
             #print(gens)
             chad_score = round(get_score(gens[0]),1)
             print(chad_score)
-            # if chad_score >= 6.9:
-            if chad_score >= 3.9:
+            if chad_score >= 6.9:
                 # images.save_image(gens[0], p.outpath_samples, "", p.seed, "-Chad--" + str(chad_score), opts.samples_format)
                 images.save_image(gens[0], chad_path, "", proc.seed, proc.prompt, opts.samples_format, info=proc.info, p=p)
                 print("Chad")
