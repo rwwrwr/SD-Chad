@@ -4,7 +4,7 @@ import modules.scripts as scripts
 import gradio as gr
 
 from modules import sd_samplers, shared
-from modules.processing import Processed, process_images, StableDiffusionProcessing, create_infotext
+from modules.processing import Processed, process_images, StableDiffusionProcessing,StableDiffusionProcessingTxt2Img, create_infotext
 import modules.images as images
 from modules.shared import opts, cmd_opts, state
 
@@ -21,6 +21,8 @@ import math
 import os
 import sys
 import traceback
+
+chad_path = os.path.join(opts.outdir_save, "Chad")
 
 state_name = "sac+logos+ava1-l14-linearMSE.pth"
 if not Path(state_name).exists():
@@ -75,7 +77,6 @@ def get_score(image):
     return score.item()
 
 #score images
-
 class Script(scripts.Script):
 
     def title(self):
@@ -102,9 +103,11 @@ class Script(scripts.Script):
             #print(gens)
             chad_score = round(get_score(gens[0]),1)
             print(chad_score)
-            if chad_score >= 6.9:
-                save_chad = images.save_image(gens[0], p.outpath_samples, "", p.seed, "-Chad--" + str(chad_score), opts.samples_format)
+            # if chad_score >= 6.9:
+            if chad_score >= 3.9:
+                # images.save_image(gens[0], p.outpath_samples, "", p.seed, "-Chad--" + str(chad_score), opts.samples_format)
+                images.save_image(gens[0], chad_path, "", proc.seed, proc.prompt, opts.samples_format, info=proc.info, p=p)
                 print("Chad")
             else:
                 print("Trash")
-      return Processed(p, gens, p.seed, "")
+      return proc
