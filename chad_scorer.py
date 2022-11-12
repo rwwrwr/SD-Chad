@@ -3,8 +3,8 @@ import os.path
 import modules.scripts as scripts
 import gradio as gr
 
-from modules import sd_samplers, shared
-from modules.processing import Processed, process_images, StableDiffusionProcessing,StableDiffusionProcessingTxt2Img, create_infotext
+from modules import processing,sd_samplers, shared
+from modules.processing import Processed, process_images, StableDiffusionProcessing,create_infotext
 import modules.images as images
 from modules.shared import opts, cmd_opts, state
 
@@ -93,16 +93,17 @@ class Script(scripts.Script):
         return [n]
 
     def run(self, p, n):
+      processing.fix_seed(p)
       for x in range(int(n)):
             #p.prompt = ''
             #print(p.prompt)
-            p.seed += 1
-            print(p.seed)
+            print(x + 1)
             proc = process_images(p)
+            p.seed += 1
             gens = proc.images
             #print(gens)
             chad_score = round(get_score(gens[0]),1)
-            print(chad_score)
+            print(f"\n", chad_score)
             if chad_score >= 6.9:
                 # images.save_image(gens[0], p.outpath_samples, "", p.seed, "-Chad--" + str(chad_score), opts.samples_format)
                 images.save_image(gens[0], chad_path, "", proc.seed, proc.prompt, opts.samples_format, info=proc.info, p=p)
